@@ -124,7 +124,7 @@
 							<th>Fecha</th>
 							<th>Monto</th>
 						</thead>
-						<tbody stlye="font-size: 11px" class="text-right">
+						<tbody stlye="font-size: 11px">
 							<tr t-foreach="o.matched_move_line_ids" t-as="i">
 								<td>
 									<span t-field="i.move_id.name" />
@@ -137,16 +137,16 @@
 								</td>
 							</tr>
 						</tbody>
-						<tfoot>
+						<!-- <tfoot>
 							<tr class="border-black">
 								<td colspan="3">
 									<strong>Total</strong>
 								</td>
 								<td class="text-right">
-									<span t-esc="sum(i.move_id.amount_total for i in o.matched_move_line_ids)"/>
+									<span t-esc="sum(i.move_id.amount_total for i in o.matched_move_line_ids)" />
 								</td>
 							</tr>
-						</tfoot>
+						</tfoot> -->
 					</table>
 
 					<br />
@@ -186,7 +186,7 @@
 								</td>
 							</tr>
 						</tbody>
-						<tfoot>
+						<!-- <tfoot>
 							<tr class="border-black">
 								<td colspan="4">
 									<strong>Total</strong>
@@ -195,28 +195,27 @@
 									<span t-field="o.payments_amount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}" />
 								</td>
 							</tr>
-						</tfoot>
+						</tfoot> -->
 
 					</table>
 
-					<!-- <br />
+					<br />
 
 					<div>
 						<h6 style="text-align: left">
 							<strong>Balance</strong>
 						</h6>
-					</div> -->
-					<!-- <table class="table">
+					</div>
+					<table class="table">
 						<tfoot style="font-size: 11;">
 							<tr class="border-black">
 								<td colspan="4">
 									<strong>Total Facturas</strong>
 								</td>
-								<t t-foreach="o.matched_move_line_ids" t-as="p">
-									<td class="text-right">
-										<span t-field="o.selected_finacial_debt" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}" />
-									</td>
-								</t>
+								<td class="text-right">
+									<span t-esc="sum(i.move_id.amount_total for i in o.matched_move_line_ids)" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+									<!-- <span t-field="o.selected_finacial_debt" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}" /> -->
+								</td>
 							</tr>
 						</tfoot>
 						<tfoot style="font-size: 11;">
@@ -229,7 +228,17 @@
 								</td>
 							</tr>
 						</tfoot>
-					</table> -->
+						<!-- <tfoot style="font-size: 11;">
+							<tr class="border-black">
+								<td colspan="4">
+									<strong>Diferencia</strong>
+								</td>
+								<td class="text-right">
+									<span t-field="o.payment_difference" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}" />
+								</td>
+							</tr>
+						</tfoot> -->
+					</table>
 				</div>
 
 				<div class="footer">
